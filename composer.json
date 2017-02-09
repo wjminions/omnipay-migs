@@ -9,7 +9,8 @@
         "migs",
         "omnipay",
         "pay",
-        "payment"
+        "payment",
+        "paymentasdga"
     ],
     "homepage": "https://github.com/thephpleague/omnipay-migs",
     "license": "MIT",
