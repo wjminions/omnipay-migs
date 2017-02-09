@@ -1,13 +1,13 @@
 {
-    "name": "wjminions/migs",
+    "name": "wjminions/omnipay-migs",
     "type": "library",
-    "description": "MIGS driver for the wjminions payment processing library",
+    "description": "MIGS driver for the Omnipay payment processing library",
     "keywords": [
         "gateway",
         "mastercard internet gateway service",
         "merchant",
         "migs",
-        "wjminions",
+        "omnipay",
         "pay",
         "payment"
     ],
@@ -24,7 +24,7 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Wjminions\\Migs\\" : "src/" }
+        "psr-4": { "Omnipay\\Migs\\" : "src/" }
     },
     "require": {
         "omnipay/common": "~2.0"

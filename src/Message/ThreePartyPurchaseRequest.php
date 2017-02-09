@@ -1,6 +1,6 @@
 <?php
 
-namespace Wjminions\Migs\Message;
+namespace Omnipay\Migs\Message;
 
 /**
  * Migs Purchase Request
