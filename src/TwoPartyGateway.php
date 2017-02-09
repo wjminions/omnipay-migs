@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\Migs;
+namespace Wjminions\Migs;
 
 use Omnipay\Common\AbstractGateway;
 

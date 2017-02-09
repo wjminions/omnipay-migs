@@ -1,4 +1,4 @@
-# Omnipay: MIGS
+# Wjminions: MIGS
 
 **MasterCard Internet Gateway Service (MIGS) driver for the Omnipay PHP payment processing library**
 
@@ -17,7 +17,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "omnipay/migs": "~2.0"
+        "wjminions/migs": "~2.0"
     }
 }
 ```
@@ -34,7 +34,7 @@ The following gateways are provided by this package:
 * Migs_TwoParty
 * Migs_ThreeParty
 
-For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
+For general usage instructions, please see the main [Wjminions](https://github.com/thephpleague/omnipay)
 repository.
 
 ## Support

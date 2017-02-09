@@ -1,18 +1,17 @@
 {
     "name": "wjminions/migs",
     "type": "library",
-    "description": "MIGS driver for the Omnipay payment processing library",
+    "description": "MIGS driver for the wjminions payment processing library",
     "keywords": [
         "gateway",
         "mastercard internet gateway service",
         "merchant",
         "migs",
-        "omnipay",
+        "wjminions",
         "pay",
-        "payment",
-        "paymentasdga"
+        "payment"
     ],
-    "homepage": "https://github.com/thephpleague/omnipay-migs",
+    "homepage": "https://github.com/wjminions/omnipay-migs",
     "license": "MIT",
     "authors": [
         {
@@ -20,8 +19,8 @@
             "email": "adrian@adrianmacneil.com"
         },
         {
-            "name": "Omnipay Contributors",
-            "homepage": "https://github.com/thephpleague/omnipay-migs/contributors"
+            "name": "Wjminions Contributors",
+            "homepage": "https://github.com/wjminions/omnipay-migs"
         }
     ],
     "autoload": {

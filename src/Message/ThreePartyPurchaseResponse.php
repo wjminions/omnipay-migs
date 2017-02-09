@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\Migs\Message;
+namespace Wjminions\Migs\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
