@@ -24,7 +24,7 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Omnipay\\Migs\\" : "src/" }
+        "psr-4": { "Wjminions\\Migs\\" : "src/" }
     },
     "require": {
         "omnipay/common": "~2.0"
