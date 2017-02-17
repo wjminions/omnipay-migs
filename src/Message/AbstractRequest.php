@@ -40,6 +40,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('secureHash', $value);
     }
 
+    public function getSecureHashType()
+    {
+        return $this->getParameter('SecureHashType');
+    }
+
+    public function setSecureHashType($value)
+    {
+        return $this->setParameter('SecureHashType', strtoupper($value));
+    }
+
     protected function getBaseData()
     {
         $data = array();
@@ -65,19 +75,32 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         ksort($data);
 
-        $hash = null;
-        foreach ($data as $k => $v) {
-            // Skip vpc_ keys that are not included in the hash calculation
-            if (in_array($k, array('vpc_SecureHash', 'vpc_SecureHashType'))) {
-                continue;
+        $SecureHashType = $this->getSecureHashType();
+
+        if ($SecureHashType === 'MD5') {
+            $hash = $this->getSecureHash();
+            foreach ($data as $k => $v) {
+                if (substr($k, 0, 4) === 'vpc_' && $k !== 'vpc_SecureHash') {
+                    $hash .= $v;
+                }
             }
 
-            if ((strlen($v) > 0) && ((substr($k, 0, 4)=="vpc_") || (substr($k, 0, 5) =="user_"))) {
-                $hash .= $k . "=" . $v . "&";
+            return strtoupper(md5($hash));
+        } else {
+            $hash = null;
+            foreach ($data as $k => $v) {
+                // Skip vpc_ keys that are not included in the hash calculation
+                if (in_array($k, array('vpc_SecureHash', 'vpc_SecureHashType'))) {
+                    continue;
+                }
+
+                if ((strlen($v) > 0) && ((substr($k, 0, 4)=="vpc_") || (substr($k, 0, 5) =="user_"))) {
+                    $hash .= $k . "=" . $v . "&";
+                }
             }
+            $hash = rtrim($hash, "&");
+
+            return strtoupper(hash_hmac('SHA256', $hash, pack('H*', $this->getSecureHash())));
         }
-        $hash = rtrim($hash, "&");
-
-        return strtoupper(hash_hmac('SHA256', $hash, pack('H*', $this->getSecureHash())));
     }
 }

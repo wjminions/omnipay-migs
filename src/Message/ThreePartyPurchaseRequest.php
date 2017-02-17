@@ -15,7 +15,11 @@ class ThreePartyPurchaseRequest extends AbstractRequest
 
         $data = $this->getBaseData();
         $data['vpc_SecureHash']  = $this->calculateHash($data);
-        $data['vpc_SecureHashType']  = 'SHA256';
+
+        if ($this->getSecureHashType() === 'SHA256') {
+            $data['vpc_SecureHashType']  = $this->getSecureHashType();
+        }
+
 
         return $data;
     }

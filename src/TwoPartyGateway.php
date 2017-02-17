@@ -55,6 +55,16 @@ class TwoPartyGateway extends AbstractGateway
         return $this->setParameter('secureHash', $value);
     }
 
+    public function getSecureHashType()
+    {
+        return $this->getParameter('SecureHashType');
+    }
+
+    public function setSecureHashType($value)
+    {
+        return $this->setParameter('SecureHashType', strtoupper($value));
+    }
+
     public function purchase(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Migs\Message\TwoPartyPurchaseRequest', $parameters);
