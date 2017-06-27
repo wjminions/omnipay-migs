@@ -19,6 +19,30 @@ class Response extends AbstractResponse
         parent::__construct($request, $data);
     }
 
+    public function isRedirect()
+    {
+        return false;
+    }
+
+
+    public function getRedirectUrl()
+    {
+        return false;
+    }
+
+
+    public function getRedirectHtml()
+    {
+        return false;
+    }
+
+
+    public function getTransactionNo()
+    {
+        return isset($this->data['vpc_ReceiptNo']) ? $this->data['vpc_ReceiptNo'] : null;
+    }
+
+
     public function isSuccessful()
     {
         return isset($this->data['vpc_TxnResponseCode']) && "0" === $this->data['vpc_TxnResponseCode'];

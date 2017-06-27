@@ -50,6 +50,36 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('SecureHashType', strtoupper($value));
     }
 
+    public function getTransNO()
+    {
+        return $this->getParameter('transNO');
+    }
+
+    public function setTransNO($value)
+    {
+        return $this->setParameter('transNO', $value);
+    }
+
+    public function getUser()
+    {
+        return $this->getParameter('user');
+    }
+
+    public function setUser($value)
+    {
+        return $this->setParameter('user', $value);
+    }
+
+    public function getPassword()
+    {
+        return $this->getParameter('password');
+    }
+
+    public function setPassword($value)
+    {
+        return $this->setParameter('password', $value);
+    }
+
     protected function getBaseData()
     {
         $data = array();
