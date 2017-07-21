@@ -29,7 +29,7 @@ class ThreePartyGateway extends TwoPartyGateway
         return $this->createRequest('\Omnipay\Migs\Message\ThreePartyRefundRequest', $parameters);
     }
 
-    public function Query(array $parameters = array())
+    public function query(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Migs\Message\ThreePartyQueryRequest', $parameters);
     }
