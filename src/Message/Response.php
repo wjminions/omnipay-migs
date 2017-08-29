@@ -45,7 +45,19 @@ class Response extends AbstractResponse
 
     public function isSuccessful()
     {
-        return isset($this->data['vpc_TxnResponseCode']) && "0" === $this->data['vpc_TxnResponseCode'];
+        if (isset($this->data['vpc_TxnResponseCode']) && "0" === $this->data['vpc_TxnResponseCode']) {
+            if (isset($this->data['vpc_AcqResponseCode'])) {
+                if ("00" === $this->data['vpc_AcqResponseCode']) {
+                    return true;
+                }
+
+                return false;
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     public function getTransactionReference()

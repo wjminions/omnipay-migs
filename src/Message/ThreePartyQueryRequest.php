@@ -58,7 +58,7 @@ class ThreePartyQueryRequest extends AbstractRequest
 
         $message = "";
 
-        if(strchr($response,"<html>") || strchr($response,"<html>")) {;
+        if(strchr($response,"<html>")) {;
             $message = $response;
         } else {
             if (curl_error($ch))
@@ -74,6 +74,8 @@ class ThreePartyQueryRequest extends AbstractRequest
                 $param = explode("=", $pair);
                 $map[urldecode($param[0])] = urldecode($param[1]);
             }
+        } else {
+            $map['curl_error'] = $message;
         }
 
         return $map;
